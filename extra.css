@@ -1,0 +1,114 @@
+@import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+@import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
+@import url(https://fonts.googleapis.com/css?family=Source+Code+Pro:400,700);
+
+body { font-family: 'Droid Serif', 'Palatino Linotype', 'Book Antiqua', Palatino, 'Microsoft YaHei', 'Songti SC', serif; }
+h1, h2, h3 {
+  font-family: 'Yanone Kaffeesatz';
+  font-weight: normal;
+}
+.remark-code, .remark-inline-code { font-family: 'Source Code Pro', 'Lucida Console', Monaco, monospace; }
+
+.title-slide {
+  background-image: url(https://secure.meetupstatic.com/photos/event/c/0/e/8/highres_488029384.jpeg), url(/images/magfieldsstrip.png);
+  background-size: 30%, contain;
+  background-position: 98% 70%, top;
+  background-color: #F2BB61;
+  
+}
+
+.title-slide h1 {
+  color: black;
+  margin-top: 300px;
+  line-height: 2.5em;
+  font-weight: bold;
+}
+.title-slide h2, .title-slide h3 {
+  color: #66AB99; 
+  line-height: 1.5em;
+}
+
+.inverse {
+  background-image: url(https://secure.meetupstatic.com/photos/event/c/1/8/7/highres_488029543.jpeg);
+  background-size: 25%;
+  background-position: 100% 0%;
+  background-color: #8CCAC7;
+  color: #162823;
+  text-shadow: none;
+  font-weight: 400;
+}
+
+.inverse h1, .inverse h2, .inverse h3 {
+  color: #FFFFFF;
+  line-height: 1.0em;
+}
+
+.inverse .remark-code {
+  color: #4BA096;
+}
+
+.inverse a {
+  color: #162823;
+}
+
+.inverse a:hover,
+.inverse a:focus,
+.inverse a:active {
+  color: #fff;
+}
+
+.inverse .remark-inline-code { 
+  color: #4BA096;
+}
+
+.left-column {
+  color: #162823;
+  width: 20%;
+  height: 92%;
+  float: left;
+}
+
+.large { font-size: 130% }
+.small { font-size: 70% }
+
+.logoblue { color: #66AB99; }
+
+/* unvisited link */
+a:link {
+    text-decoration: underline;
+}
+
+/* visited link */
+a:visited {
+    text-decoration: underline;
+}
+
+.remark-slide-content p, ul, ol, li {
+  font-size: 28px;
+}
+
+.embed-twitter {
+    width: 75% !important;
+}
+
+.picture {
+  background-color: #F2BB61;
+  color: #4BA096;
+  text-shadow: none;
+  font-weight: 400;
+}
+
+.picture h1, .picture h2, .picture h3 {
+  color: #4BA096;
+  line-height: 1.0em;
+}
+
+.picture a {
+  color: #fff;
+}
+
+.picture a:hover,
+.picture a:focus,
+.picture a:active {
+  color: #162823;
+}

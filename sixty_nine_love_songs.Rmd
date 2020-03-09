@@ -1,0 +1,324 @@
+---
+title: "Building an award-winning Shiny App"
+subtitle: "by"
+author: "David Smale"
+institute: "@committedtotape"
+date: "April 2020"
+output:
+  xaringan::moon_reader:
+    seal: false
+    css: ["default", "extra.css"]
+    lib_dir: libs
+    nature:
+      ratio: "16:9"
+      beforeInit: "https://platform.twitter.com/widgets.js"
+      highlightStyle: zenburn
+      highlightLines: true
+      countIncrementalSlides: false
+---
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+```
+
+class: title-slide, left
+
+# From 0 to .logoblue[Shiny] in 69 Love Songs
+
+## David Smale | Brighton R | 2nd April 2020 
+
+---
+class: inverse, right, bottom
+
+# Get in touch...
+
+<img style="border-radius: 20%;" src="https://github.com/committedtotape.png" width="150px"/>
+
+[`r icon::fa("twitter")` @committedtotape](http://twitter.com/committedtotape)  
+[`r icon::fa("github")` @committedtotape](http://github.com/committedtotape)  
+[`r icon::fa("link")` davidsmale@netlify.com](https://davidsmale@netlify.com)  
+[`r icon::fa("paper-plane")` davidlsmale@gmail.com](mailto:davidlsmale@gmail.com)
+
+---
+class: inverse, center, top
+
+# Who am I?
+
+<img style="border-radius: 0%;" src="/images/blog-shot.png" width="700px"/>
+
+.pull-left[
+`r icon::fa("laptop-code")`  .small[R User for around 2 years]
+
+<i class="fas fa-broom"></i>  .small[Tidyverse fanboy]  
+]
+
+.pull-right[
+`r icon::fa("twitter")`  .small[R Tweeter and blogger]
+
+<i class="fas fa-microphone"></i>    .small[Indiepop, Wes Anderson, Cricket]
+]
+
+---
+class: picture, center, middle
+
+.pull-left[
+<br>
+<br>
+# Ooooh... 
+# `r emo::ji("sparkles")` Shiny `r emo::ji("sparkles")`...
+]
+
+.pull-right[
+<br>
+<br>
+<img style="border-radius: 10%;" src="https://i2-prod.dailyrecord.co.uk/incoming/article9485076.ece/ALTERNATES/s615b/Panini-stickers.jpg" width="90%"/>
+]
+
+---
+class: inverse, left, middle
+
+# What's a Shiny App?
+
+<img src="https://github.com/rstudio/hex-stickers/raw/master/PNG/shiny.png" width="20%" align="right" />
+
+*  Shiny is an R package for building interactive web apps
+
+--
+
+*  Allows users to interact with your data and analysis
+
+--
+
+*  No web development skills required!
+
+--
+
+*  All built within R and can be shared easily and for free!
+
+--
+
+---
+class: inverse, right, middle
+
+.pull-left[
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Announcing the 1st Shiny Contest<br>In order to encourage more sharing, as well as to recognize the many outstanding ways people work with Shiny, we are happy to announce the first contest to recognize outstanding Shiny applications!<a href="https://t.co/LduHLuNIQB">https://t.co/LduHLuNIQB</a> <a href="https://t.co/u4NyXn0FZi">pic.twitter.com/u4NyXn0FZi</a></p>&mdash; RStudio (@rstudio) <a href="https://twitter.com/rstudio/status/1082349589922041858?ref_src=twsrc%5Etfw">January 7, 2019</a></blockquote>
+]
+
+.pull-right[
+<br>
+<br>
+<br>
+# The Motivation
+
+`r emo::ji("loudspeaker")` First ever Shiny Contest announced by RStudio on 7th January last year
+
+`r emo::ji("spiral_calendar")` Deadline of 8th March
+
+`r emo::ji("trophy")` Awards (& Recognition) to be won!
+
+]
+---
+class: inverse, center, middle
+
+# The Inspiration
+
+.pull-left[
+### Text Mining
+
+<img src = "https://www.tidytextmining.com/images/cover.png" width="50%">
+
+]
+
+.pull-right[
+### Song Lyrics
+
+<img src = "https://upload.wikimedia.org/wikipedia/en/0/00/The_Magnetic_Fields_-_69_Love_Songs.jpg" width = "60%" >
+
+]
+
+---
+class: inverse, center, middle
+
+# Something to work with...
+
+.pull-left[
+
+<img src = "/images/69 love songs love count.png" width="100%" >
+
+]
+
+.pull-right[
+
+<img src = "/images/69wordcloud.png" width="90%" >
+
+]
+
+---
+class: inverse, left, middle
+
+# Making it Shiny
+
+A shiny app is built from a single script called `app.R`, which contains:
+
+*  UI object - Defines layout and appearance of the app
+
+*  Server function - what’s needed to build the app
+
+*  shinyApp() function
+
+```{r, eval=FALSE}
+library(shiny)
+
+ui <- ...
+
+server <- ...
+
+shinyApp(ui = ui, server = server)
+```
+---
+class: inverse, left, middle
+
+# UI
+
+---
+class: inverse, left, middle
+
+# Server
+
+---
+class: inverse, left, middle
+
+# Packages
+
+`r emo::ji("corn")` `{rvest}` - Scraping lyrics from the web
+
+`r emo::ji("star")` `{tidyverse}` - All the things
+
+`r emo::ji("open_book")` `{tidytext}` - Text mining the tidy way
+
+`r emo::ji("cloud")` `{wordcloud2}` - Interactive word clouds 
+
+`r emo::ji("chains")` `{tidygraph}` - Networks the tidy way
+
+`r emo::ji("spider_web")` `{vizNetwork}` - Interactive network viz
+
+`r emo::ji("abcd")` `{DT}` - Interactive HTML tables
+
+---
+class: inverse, left, middle
+
+# The Competition
+
+The requirements for a submission were:
+
+*  The app should be in an [RStudio Cloud](http://rstudio.cloud/) project.
+
+--
+
+*  The app should be deployed on [shinyapps.io](http://shiny.rstudio.com/articles/shinyapps.html).
+
+--
+
+*  Any data and code used in the app should be publicly available and/or openly licensed.
+
+--
+
+*  Entries submitted to [RStudio Community](https://community.rstudio.com/) (no limit to submissions per participant!) 
+
+--
+
+With the apps to be judged on technical merit and/or on artistic achievement
+
+---
+class: inverse, left, middle
+
+# The Results 
+
+.pull-left[
+## `r emo::ji("tada")` I won!!! `r emo::ji("tada")`
+
+Awarded 'Best Design'
+
+They sent me merch!
+
+Also, had a one-on-one session with RStudio CTO and Shiny inventor, Joe Cheng
+]
+
+.pull-right[
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">My <a href="https://twitter.com/hashtag/shiny?src=hash&amp;ref_src=twsrc%5Etfw">#shiny</a> contest winnings have arrived! Feeling very <a href="https://twitter.com/hashtag/rstats?src=hash&amp;ref_src=twsrc%5Etfw">#rstats</a> right now. Thanks <a href="https://twitter.com/rstudio?ref_src=twsrc%5Etfw">@rstudio</a>! <a href="https://t.co/l6eRZ4W0Jk">pic.twitter.com/l6eRZ4W0Jk</a></p>&mdash; David Smale 🔎 (@committedtotape) <a href="https://twitter.com/committedtotape/status/1139825701979381760?ref_src=twsrc%5Etfw">June 15, 2019</a></blockquote>
+]
+---
+class: picture, center, middle
+
+# Live Demo!!!
+
+### [https://committedtotape.shinyapps.io/sixtyninelovesongs/](https://committedtotape.shinyapps.io/sixtyninelovesongs/)
+
+<img src = "https://d33wubrfki0l68.cloudfront.net/11fc20eae182289c7ee862b49727d2b6bb4d564c/2e006/images/2019-04-05-sixty-nine-love-songs.gif">
+
+---
+class: inverse, center, middle
+
+# Other submissions
+
+.pull-left[
+## [Hex Memory Game by pvictor](https://dreamrs.shinyapps.io/memory-hex/)
+
+<img src = "https://d33wubrfki0l68.cloudfront.net/ed6f1b09e6eb8f8ca4e3c1355312f6ab025cc454/9ee23/images/2019-04-05-hex-game.gif" width = "95%">
+]
+
+--
+
+.pull-right[
+## [tidytuesday.rocks by Neal Grantham](https://nsgrantham.shinyapps.io/tidytuesdayrocks/)
+
+<img src = "https://d33wubrfki0l68.cloudfront.net/52c7721c7914fe7492f4f32a869279d66a790a0f/73d7d/images/2019-04-05-tidytuesday.gif">
+]
+
+---
+class: inverse, left, middle
+
+# Shiny Contest 2020
+
+`r emo::ji("loudspeaker")` Announced at [rstudio::conf](https://resources.rstudio.com/rstudio-conf-2020/making-the-shiny-contest-mine-%C3%A7etinkaya-runde) at end of January
+
+--
+
+`r emo::ji("hourglass")` Closed on 20th March - Sorry!
+
+--
+
+`r emo::ji("crossed_fingers")` I've entered again, this time - [Wes Anderson](https://committedtotape.shinyapps.io/wesandersonnetwork/)
+
+.center[![](https://media.giphy.com/media/oHihEfEj9EkGk/giphy.gif)]
+
+---
+class: inverse, left, middle
+
+# Taking Shiny Further
+
+*  [Mastering Shiny](https://mastering-shiny.org/) by Hadley Wickham: Under development, but read the draft now.
+
+--
+
+*  [golem](https://thinkr-open.github.io/golem/) by ThinkR: For robust, production-grade shiny apps
+
+--
+
+*  
+
+---
+class: inverse, center, middle
+
+
+# `r emo::ji("raised_hands")` 
+# Thank you!
+
+`r emo::ji("package")` Slides made using the `xaringan` package
+
+`r emo::ji("desktop_computer")` Slides available at:
+
+`r emo::ji("man_technologist")` Code behind the slides at:
+
+
+
