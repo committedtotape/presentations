@@ -5,6 +5,10 @@
     <meta charset="utf-8" />
     <meta name="author" content="David Smale" />
     <link href="libs/remark-css/default.css" rel="stylesheet" />
+    <script src="libs/xaringanExtra-webcam/webcam.js"></script>
+    <script id="xaringanExtra-webcam-options" type="application/json">{"width":"200","height":"200","margin":"1em"}</script>
+    <link href="libs/tile-view/tile-view.css" rel="stylesheet" />
+    <script src="libs/tile-view/tile-view.js"></script>
     <link href="libs/font-awesome/css/fontawesome-all.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="extra.css" type="text/css" />
   </head>
@@ -18,18 +22,22 @@ class: title-slide, left
 
 # From 0 to .logoblue[Shiny] in 69 Love Songs
 
-## David Smale | Brighton R | 2nd April 2020 
+## David Smale | Brighton R | August 2020 
 
 ---
 class: inverse, right, bottom
 
 # Get in touch...
 
+
+
+
+
 &lt;img style="border-radius: 20%;" src="https://github.com/committedtotape.png" width="150px"/&gt;
 
 [<i class="fab  fa-twitter "></i> @committedtotape](http://twitter.com/committedtotape)  
 [<i class="fab  fa-github "></i> @committedtotape](http://github.com/committedtotape)  
-[<i class="fas  fa-link "></i> davidsmale@netlify.com](https://davidsmale@netlify.com)  
+[<i class="fas  fa-link "></i> davidsmale@netlify.app](https://davidsmale.netlify.app/portfolio/)  
 [<i class="fas  fa-paper-plane "></i> davidlsmale@gmail.com](mailto:davidlsmale@gmail.com)
 
 ---
@@ -37,18 +45,18 @@ class: inverse, center, top
 
 # Who am I?
 
-&lt;img style="border-radius: 0%;" src="/images/blog-shot.png" width="700px"/&gt;
+&lt;img style="border-radius: 0%;" src="https://github.com/committedtotape/presentations/raw/master/images/blog-shot.png" width="700px"/&gt;
 
 .pull-left[
-<i class="fas  fa-laptop-code "></i>  .small[R User for around 2 years]
+👨‍💻  .small[R User for around 2 years]
 
-&lt;i class="fas fa-broom"&gt;&lt;/i&gt;  .small[Tidyverse fanboy]  
+😎 .small[Tidyverse fanboy]  
 ]
 
 .pull-right[
-<i class="fab  fa-twitter "></i>  .small[R Tweeter and blogger]
+🐦  .small[R Tweeter and blogger]
 
-&lt;i class="fas fa-microphone"&gt;&lt;/i&gt;    .small[Indiepop, Wes Anderson, Cricket]
+🏏   .small[Indiepop, Wes Anderson, Cricket]
 ]
 
 ---
@@ -111,95 +119,7 @@ class: inverse, right, middle
 
 ]
 ---
-class: inverse, center, middle
-
-# The Inspiration
-
-.pull-left[
-### Text Mining
-
-&lt;img src = "https://www.tidytextmining.com/images/cover.png" width="50%"&gt;
-
-]
-
-.pull-right[
-### Song Lyrics
-
-&lt;img src = "https://upload.wikimedia.org/wikipedia/en/0/00/The_Magnetic_Fields_-_69_Love_Songs.jpg" width = "60%" &gt;
-
-]
-
----
-class: inverse, center, middle
-
-# Something to work with...
-
-.pull-left[
-
-&lt;img src = "/images/69 love songs love count.png" width="100%" &gt;
-
-]
-
-.pull-right[
-
-&lt;img src = "/images/69wordcloud.png" width="90%" &gt;
-
-]
-
----
-class: inverse, left, middle
-
-# Making it Shiny
-
-A shiny app is built from a single script called `app.R`, which contains:
-
-*  UI object - Defines layout and appearance of the app
-
-*  Server function - what’s needed to build the app
-
-*  shinyApp() function
-
-
-```r
-library(shiny)
-
-ui &lt;- ...
-
-server &lt;- ...
-
-shinyApp(ui = ui, server = server)
-```
----
-class: inverse, left, middle
-
-# UI
-
----
-class: inverse, left, middle
-
-# Server
-
----
-class: inverse, left, middle
-
-# Packages
-
-🌽 `{rvest}` - Scraping lyrics from the web
-
-⭐ `{tidyverse}` - All the things
-
-📖 `{tidytext}` - Text mining the tidy way
-
-☁️ `{wordcloud2}` - Interactive word clouds 
-
-⛓ `{tidygraph}` - Networks the tidy way
-
-🕸 `{vizNetwork}` - Interactive network viz
-
-🔡 `{DT}` - Interactive HTML tables
-
----
-class: inverse, left, middle
+class: inverse, left, top
 
 # The Competition
 
@@ -224,6 +144,203 @@ The requirements for a submission were:
 With the apps to be judged on technical merit and/or on artistic achievement
 
 ---
+class: inverse, center, middle
+
+# The Inspiration
+
+.pull-left[
+### Text Mining
+
+&lt;img src = "https://www.tidytextmining.com/images/cover.png" width="50%"&gt;
+
+]
+
+--
+
+.pull-right[
+### Song Lyrics
+
+&lt;img src = "https://upload.wikimedia.org/wikipedia/en/0/00/The_Magnetic_Fields_-_69_Love_Songs.jpg" width = "60%" &gt;
+
+]
+
+---
+class: inverse, center, middle
+
+# Something to work with...
+
+.pull-left[
+
+&lt;img src = "https://github.com/committedtotape/presentations/raw/master/images/69%20love%20songs%20love%20count.png" width="100%" &gt;
+
+]
+
+--
+
+.pull-right[
+
+&lt;img src = "https://github.com/committedtotape/presentations/raw/master/images/69wordcloud.png" width="90%" &gt;
+
+]
+
+---
+class: inverse, left, top
+
+# Making it Shiny
+
+A shiny app is built from a single script called `app.R`, which contains:
+
+*  UI object - Defines layout and appearance of the app
+
+--
+
+*  Server function - what’s needed to build the app
+
+--
+
+*  shinyApp() function
+
+
+```r
+library(shiny)
+
+ui &lt;- ...
+
+server &lt;- ...
+
+shinyApp(ui = ui, server = server)
+```
+---
+class: inverse, left, top
+
+# UI
+
+The UI (User Interface) defines how your app *looks*
+
+--
+
+### Common functions used:
+
+  *  Layout functions - What goes where? e.g. `sidebarLayout()`
+  
+--
+  
+  *  Input controls - How can the user interact with app? e.g. `selectInput()`
+  
+--
+  
+  *  Output controls - Where does the rendered output (tables, graphs etc) go? e.g. `plotOutput()`
+
+--
+
+&lt;br&gt;
+
+### Shiny then takes all this and generates HTML to render your app
+
+---
+class: inverse, left, top
+
+# Server
+
+The Server defines how your app *works*
+
+--
+
+### Build the outputs referred to in the UI
+
+  *  Link each output defined in UI to an output in your server `output$ID &lt;- ...`
+
+--
+
+  *  Use a render function that pairs with output in UI e.g. `renderPlot()`
+  
+--
+
+&lt;br&gt;
+&lt;br&gt;
+
+### Get to grips with Reactive Programming
+  
+
+---
+class: inverse, left, middle
+
+# Customise 🎨
+
+.pull-left[
+
+*  Customise your app using CSS
+
+*  If you don't know CSS - don't worry nor did I (and I still don't)
+
+*  Instantly transform your app with a change of font and a flash of colour!
+
+*  Create a separate CSS file and include in UI
+]
+
+.pull-right[
+
+```r
+* {
+  font-family: 'Courier', cursive !important;
+}
+
+a {
+  color: #E00008;
+}
+a:hover {
+  color: #858B8E;
+}
+```
+
+
+
+```r
+includeCSS("styles.css")
+```
+]
+---
+class: inverse, left, top
+
+# Packages
+
+🌽 `{rvest}` - Scraping lyrics from the web
+
+--
+
+⭐ `{tidyverse}` - All the things
+
+--
+
+📖 `{tidytext}` - Text mining the tidy way
+
+--
+
+☁️ `{wordcloud2}` - Interactive word clouds 
+
+--
+
+⛓ `{tidygraph}` - Networks the tidy way
+
+--
+
+🕸 `{vizNetwork}` - Interactive network viz
+
+--
+
+🔡 `{DT}` - Interactive HTML tables
+
+---
+class: picture, center, middle
+
+# Live Demo!!!
+
+### [https://committedtotape.shinyapps.io/sixtyninelovesongs/](https://committedtotape.shinyapps.io/sixtyninelovesongs/)
+
+&lt;img src = "https://d33wubrfki0l68.cloudfront.net/11fc20eae182289c7ee862b49727d2b6bb4d564c/2e006/images/2019-04-05-sixty-nine-love-songs.gif"&gt;
+
+
+---
 class: inverse, left, middle
 
 # The Results 
@@ -241,14 +358,6 @@ Also, had a one-on-one session with RStudio CTO and Shiny inventor, Joe Cheng
 .pull-right[
 &lt;blockquote class="twitter-tweet"&gt;&lt;p lang="en" dir="ltr"&gt;My &lt;a href="https://twitter.com/hashtag/shiny?src=hash&amp;amp;ref_src=twsrc%5Etfw"&gt;#shiny&lt;/a&gt; contest winnings have arrived! Feeling very &lt;a href="https://twitter.com/hashtag/rstats?src=hash&amp;amp;ref_src=twsrc%5Etfw"&gt;#rstats&lt;/a&gt; right now. Thanks &lt;a href="https://twitter.com/rstudio?ref_src=twsrc%5Etfw"&gt;@rstudio&lt;/a&gt;! &lt;a href="https://t.co/l6eRZ4W0Jk"&gt;pic.twitter.com/l6eRZ4W0Jk&lt;/a&gt;&lt;/p&gt;&amp;mdash; David Smale 🔎 (@committedtotape) &lt;a href="https://twitter.com/committedtotape/status/1139825701979381760?ref_src=twsrc%5Etfw"&gt;June 15, 2019&lt;/a&gt;&lt;/blockquote&gt;
 ]
----
-class: picture, center, middle
-
-# Live Demo!!!
-
-### [https://committedtotape.shinyapps.io/sixtyninelovesongs/](https://committedtotape.shinyapps.io/sixtyninelovesongs/)
-
-&lt;img src = "https://d33wubrfki0l68.cloudfront.net/11fc20eae182289c7ee862b49727d2b6bb4d564c/2e006/images/2019-04-05-sixty-nine-love-songs.gif"&gt;
 
 ---
 class: inverse, center, middle
@@ -270,7 +379,7 @@ class: inverse, center, middle
 ]
 
 ---
-class: inverse, left, middle
+class: inverse, left, top
 
 # Shiny Contest 2020
 
@@ -278,28 +387,40 @@ class: inverse, left, middle
 
 --
 
-⌛ Closed on 20th March - Sorry!
+⌛ Closed on 20th March
 
 --
 
-🤞 I've entered again, this time - [Wes Anderson](https://committedtotape.shinyapps.io/wesandersonnetwork/)
+🤞 I entered again, this time - [Wes Anderson](https://committedtotape.shinyapps.io/wesandersonnetwork/)
 
 .center[![](https://media.giphy.com/media/oHihEfEj9EkGk/giphy.gif)]
 
+--
+
+### 👀 Winners announced on 13th July. Alas, I didn't win this time, see this year's winning apps [here](https://blog.rstudio.com/2020/07/13/winners-of-the-2nd-shiny-contest/)
+
 ---
-class: inverse, left, middle
+class: inverse, left, top
 
 # Taking Shiny Further
+
+## Learn more
+
+*  RStudio's Shiny Tutorials at [https://shiny.rstudio.com](https://shiny.rstudio.com/tutorial/)
 
 *  [Mastering Shiny](https://mastering-shiny.org/) by Hadley Wickham: Under development, but read the draft now.
 
 --
 
-*  [golem](https://thinkr-open.github.io/golem/) by ThinkR: For robust, production-grade shiny apps
+## Going even further
+
+*  [Engineering Production-Grade Shiny Apps](https://engineering-shiny.org/) by ThinkR
+
+*  Shiny modules for when your app becomes large and complicated
+
+*  Easier app customisation with [bootstraplib](https://resources.rstudio.com/rstudio-conf-2020/styling-shiny-apps-with-sass-and-bootstrap-4-joe-cheng)
 
 --
-
-*  
 
 ---
 class: inverse, center, middle
@@ -310,9 +431,9 @@ class: inverse, center, middle
 
 📦 Slides made using the `xaringan` package
 
-🖥 Slides available at:
+🖥 Slides available at: [davidsmale.netlify.app/slides/sixty_nine_love_songs](https://davidsmale.netlify.app/slides/sixty_nine_love_songs)
 
-👨‍💻 Code behind the slides at:
+👨‍💻 Code behind the slides at: [github.com/committedtotape](https://github.com/committedtotape/presentations)
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
@@ -320,7 +441,7 @@ class: inverse, center, middle
 <script>var slideshow = remark.create({
 "ratio": "16:9",
 "highlightStyle": "zenburn",
-"highlightLines": true,
+"highlightLines": false,
 "countIncrementalSlides": false
 });
 if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
@@ -361,24 +482,7 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
     }
     deleted = true;
   });
-})();
-// adds .remark-code-has-line-highlighted class to <pre> parent elements
-// of code chunks containing highlighted lines with class .remark-code-line-highlighted
-(function(d) {
-  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
-  const preParents = [];
-  const findPreParent = function(line, p = 0) {
-    if (p > 1) return null; // traverse up no further than grandparent
-    const el = line.parentElement;
-    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
-  };
-
-  for (let line of hlines) {
-    let pre = findPreParent(line);
-    if (pre && !preParents.includes(pre)) preParents.push(pre);
-  }
-  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
-})(document);</script>
+})();</script>
 
 <script>
 (function() {

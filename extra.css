@@ -10,7 +10,7 @@ h1, h2, h3 {
 .remark-code, .remark-inline-code { font-family: 'Source Code Pro', 'Lucida Console', Monaco, monospace; }
 
 .title-slide {
-  background-image: url(https://secure.meetupstatic.com/photos/event/c/0/e/8/highres_488029384.jpeg), url(/images/magfieldsstrip.png);
+  background-image: url(https://secure.meetupstatic.com/photos/event/c/0/e/8/highres_488029384.jpeg), url(https://github.com/committedtotape/presentations/raw/master/images/magfieldsstrip.png);
   background-size: 30%, contain;
   background-position: 98% 70%, top;
   background-color: #F2BB61;

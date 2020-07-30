@@ -13,7 +13,7 @@ output:
       ratio: "16:9"
       beforeInit: "https://platform.twitter.com/widgets.js"
       highlightStyle: zenburn
-      highlightLines: true
+      highlightLines: false
       countIncrementalSlides: false
 ---
 
@@ -25,18 +25,26 @@ class: title-slide, left
 
 # From 0 to .logoblue[Shiny] in 69 Love Songs
 
-## David Smale | Brighton R | 2nd April 2020 
+## David Smale | Brighton R | August 2020 
 
 ---
 class: inverse, right, bottom
 
 # Get in touch...
 
+```{r xaringan-webcam, include = FALSE}
+xaringanExtra::use_webcam()
+```
+
+```{r xaringan-tile-view, echo=FALSE}
+xaringanExtra::use_tile_view()
+```
+
 <img style="border-radius: 20%;" src="https://github.com/committedtotape.png" width="150px"/>
 
 [`r icon::fa("twitter")` @committedtotape](http://twitter.com/committedtotape)  
 [`r icon::fa("github")` @committedtotape](http://github.com/committedtotape)  
-[`r icon::fa("link")` davidsmale@netlify.com](https://davidsmale@netlify.com)  
+[`r icon::fa("link")` davidsmale@netlify.app](https://davidsmale.netlify.app/portfolio/)  
 [`r icon::fa("paper-plane")` davidlsmale@gmail.com](mailto:davidlsmale@gmail.com)
 
 ---
@@ -44,18 +52,18 @@ class: inverse, center, top
 
 # Who am I?
 
-<img style="border-radius: 0%;" src="/images/blog-shot.png" width="700px"/>
+<img style="border-radius: 0%;" src="https://github.com/committedtotape/presentations/raw/master/images/blog-shot.png" width="700px"/>
 
 .pull-left[
-`r icon::fa("laptop-code")`  .small[R User for around 2 years]
+`r emo::ji("man_technologist")`  .small[R User for around 2 years]
 
-<i class="fas fa-broom"></i>  .small[Tidyverse fanboy]  
+`r emo::ji("sunglasses")` .small[Tidyverse fanboy]  
 ]
 
 .pull-right[
-`r icon::fa("twitter")`  .small[R Tweeter and blogger]
+`r emo::ji("bird")`  .small[R Tweeter and blogger]
 
-<i class="fas fa-microphone"></i>    .small[Indiepop, Wes Anderson, Cricket]
+`r emo::ji("cricket")`   .small[Indiepop, Wes Anderson, Cricket]
 ]
 
 ---
@@ -118,94 +126,7 @@ class: inverse, right, middle
 
 ]
 ---
-class: inverse, center, middle
-
-# The Inspiration
-
-.pull-left[
-### Text Mining
-
-<img src = "https://www.tidytextmining.com/images/cover.png" width="50%">
-
-]
-
-.pull-right[
-### Song Lyrics
-
-<img src = "https://upload.wikimedia.org/wikipedia/en/0/00/The_Magnetic_Fields_-_69_Love_Songs.jpg" width = "60%" >
-
-]
-
----
-class: inverse, center, middle
-
-# Something to work with...
-
-.pull-left[
-
-<img src = "/images/69 love songs love count.png" width="100%" >
-
-]
-
-.pull-right[
-
-<img src = "/images/69wordcloud.png" width="90%" >
-
-]
-
----
-class: inverse, left, middle
-
-# Making it Shiny
-
-A shiny app is built from a single script called `app.R`, which contains:
-
-*  UI object - Defines layout and appearance of the app
-
-*  Server function - what’s needed to build the app
-
-*  shinyApp() function
-
-```{r, eval=FALSE}
-library(shiny)
-
-ui <- ...
-
-server <- ...
-
-shinyApp(ui = ui, server = server)
-```
----
-class: inverse, left, middle
-
-# UI
-
----
-class: inverse, left, middle
-
-# Server
-
----
-class: inverse, left, middle
-
-# Packages
-
-`r emo::ji("corn")` `{rvest}` - Scraping lyrics from the web
-
-`r emo::ji("star")` `{tidyverse}` - All the things
-
-`r emo::ji("open_book")` `{tidytext}` - Text mining the tidy way
-
-`r emo::ji("cloud")` `{wordcloud2}` - Interactive word clouds 
-
-`r emo::ji("chains")` `{tidygraph}` - Networks the tidy way
-
-`r emo::ji("spider_web")` `{vizNetwork}` - Interactive network viz
-
-`r emo::ji("abcd")` `{DT}` - Interactive HTML tables
-
----
-class: inverse, left, middle
+class: inverse, left, top
 
 # The Competition
 
@@ -230,6 +151,202 @@ The requirements for a submission were:
 With the apps to be judged on technical merit and/or on artistic achievement
 
 ---
+class: inverse, center, middle
+
+# The Inspiration
+
+.pull-left[
+### Text Mining
+
+<img src = "https://www.tidytextmining.com/images/cover.png" width="50%">
+
+]
+
+--
+
+.pull-right[
+### Song Lyrics
+
+<img src = "https://upload.wikimedia.org/wikipedia/en/0/00/The_Magnetic_Fields_-_69_Love_Songs.jpg" width = "60%" >
+
+]
+
+---
+class: inverse, center, middle
+
+# Something to work with...
+
+.pull-left[
+
+<img src = "https://github.com/committedtotape/presentations/raw/master/images/69%20love%20songs%20love%20count.png" width="100%" >
+
+]
+
+--
+
+.pull-right[
+
+<img src = "https://github.com/committedtotape/presentations/raw/master/images/69wordcloud.png" width="90%" >
+
+]
+
+---
+class: inverse, left, top
+
+# Making it Shiny
+
+A shiny app is built from a single script called `app.R`, which contains:
+
+*  UI object - Defines layout and appearance of the app
+
+--
+
+*  Server function - what’s needed to build the app
+
+--
+
+*  shinyApp() function
+
+```{r, eval=FALSE}
+library(shiny)
+
+ui <- ...
+
+server <- ...
+
+shinyApp(ui = ui, server = server)
+```
+---
+class: inverse, left, top
+
+# UI
+
+The UI (User Interface) defines how your app *looks*
+
+--
+
+### Common functions used:
+
+  *  Layout functions - What goes where? e.g. `sidebarLayout()`
+  
+--
+  
+  *  Input controls - How can the user interact with app? e.g. `selectInput()`
+  
+--
+  
+  *  Output controls - Where does the rendered output (tables, graphs etc) go? e.g. `plotOutput()`
+
+--
+
+<br>
+
+### Shiny then takes all this and generates HTML to render your app
+
+---
+class: inverse, left, top
+
+# Server
+
+The Server defines how your app *works*
+
+--
+
+### Build the outputs referred to in the UI
+
+  *  Link each output defined in UI to an output in your server `output$ID <- ...`
+
+--
+
+  *  Use a render function that pairs with output in UI e.g. `renderPlot()`
+  
+--
+
+<br>
+<br>
+
+### Get to grips with Reactive Programming
+  
+
+---
+class: inverse, left, middle
+
+# Customise `r emo::ji("art")`
+
+.pull-left[
+
+*  Customise your app using CSS
+
+*  If you don't know CSS - don't worry nor did I (and I still don't)
+
+*  Instantly transform your app with a change of font and a flash of colour!
+
+*  Create a separate CSS file and include in UI
+]
+
+.pull-right[
+```{r, eval=FALSE}
+
+* {
+  font-family: 'Courier', cursive !important;
+}
+
+a {
+  color: #E00008;
+}
+a:hover {
+  color: #858B8E;
+}
+
+```
+
+
+```{r, eval=FALSE}
+includeCSS("styles.css")
+```
+]
+---
+class: inverse, left, top
+
+# Packages
+
+`r emo::ji("corn")` `{rvest}` - Scraping lyrics from the web
+
+--
+
+`r emo::ji("star")` `{tidyverse}` - All the things
+
+--
+
+`r emo::ji("open_book")` `{tidytext}` - Text mining the tidy way
+
+--
+
+`r emo::ji("cloud")` `{wordcloud2}` - Interactive word clouds 
+
+--
+
+`r emo::ji("chains")` `{tidygraph}` - Networks the tidy way
+
+--
+
+`r emo::ji("spider_web")` `{vizNetwork}` - Interactive network viz
+
+--
+
+`r emo::ji("abcd")` `{DT}` - Interactive HTML tables
+
+---
+class: picture, center, middle
+
+# Live Demo!!!
+
+### [https://committedtotape.shinyapps.io/sixtyninelovesongs/](https://committedtotape.shinyapps.io/sixtyninelovesongs/)
+
+<img src = "https://d33wubrfki0l68.cloudfront.net/11fc20eae182289c7ee862b49727d2b6bb4d564c/2e006/images/2019-04-05-sixty-nine-love-songs.gif">
+
+
+---
 class: inverse, left, middle
 
 # The Results 
@@ -247,14 +364,6 @@ Also, had a one-on-one session with RStudio CTO and Shiny inventor, Joe Cheng
 .pull-right[
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">My <a href="https://twitter.com/hashtag/shiny?src=hash&amp;ref_src=twsrc%5Etfw">#shiny</a> contest winnings have arrived! Feeling very <a href="https://twitter.com/hashtag/rstats?src=hash&amp;ref_src=twsrc%5Etfw">#rstats</a> right now. Thanks <a href="https://twitter.com/rstudio?ref_src=twsrc%5Etfw">@rstudio</a>! <a href="https://t.co/l6eRZ4W0Jk">pic.twitter.com/l6eRZ4W0Jk</a></p>&mdash; David Smale 🔎 (@committedtotape) <a href="https://twitter.com/committedtotape/status/1139825701979381760?ref_src=twsrc%5Etfw">June 15, 2019</a></blockquote>
 ]
----
-class: picture, center, middle
-
-# Live Demo!!!
-
-### [https://committedtotape.shinyapps.io/sixtyninelovesongs/](https://committedtotape.shinyapps.io/sixtyninelovesongs/)
-
-<img src = "https://d33wubrfki0l68.cloudfront.net/11fc20eae182289c7ee862b49727d2b6bb4d564c/2e006/images/2019-04-05-sixty-nine-love-songs.gif">
 
 ---
 class: inverse, center, middle
@@ -276,7 +385,7 @@ class: inverse, center, middle
 ]
 
 ---
-class: inverse, left, middle
+class: inverse, left, top
 
 # Shiny Contest 2020
 
@@ -284,28 +393,40 @@ class: inverse, left, middle
 
 --
 
-`r emo::ji("hourglass")` Closed on 20th March - Sorry!
+`r emo::ji("hourglass")` Closed on 20th March
 
 --
 
-`r emo::ji("crossed_fingers")` I've entered again, this time - [Wes Anderson](https://committedtotape.shinyapps.io/wesandersonnetwork/)
+`r emo::ji("crossed_fingers")` I entered again, this time - [Wes Anderson](https://committedtotape.shinyapps.io/wesandersonnetwork/)
 
 .center[![](https://media.giphy.com/media/oHihEfEj9EkGk/giphy.gif)]
 
+--
+
+### `r emo::ji("eyes")` Winners announced on 13th July. Alas, I didn't win this time, see this year's winning apps [here](https://blog.rstudio.com/2020/07/13/winners-of-the-2nd-shiny-contest/)
+
 ---
-class: inverse, left, middle
+class: inverse, left, top
 
 # Taking Shiny Further
+
+## Learn more
+
+*  RStudio's Shiny Tutorials at [https://shiny.rstudio.com](https://shiny.rstudio.com/tutorial/)
 
 *  [Mastering Shiny](https://mastering-shiny.org/) by Hadley Wickham: Under development, but read the draft now.
 
 --
 
-*  [golem](https://thinkr-open.github.io/golem/) by ThinkR: For robust, production-grade shiny apps
+## Going even further
+
+*  [Engineering Production-Grade Shiny Apps](https://engineering-shiny.org/) by ThinkR
+
+*  Shiny modules for when your app becomes large and complicated
+
+*  Easier app customisation with [bootstraplib](https://resources.rstudio.com/rstudio-conf-2020/styling-shiny-apps-with-sass-and-bootstrap-4-joe-cheng)
 
 --
-
-*  
 
 ---
 class: inverse, center, middle
@@ -316,9 +437,9 @@ class: inverse, center, middle
 
 `r emo::ji("package")` Slides made using the `xaringan` package
 
-`r emo::ji("desktop_computer")` Slides available at:
+`r emo::ji("desktop_computer")` Slides available at: [davidsmale.netlify.app/slides/sixty_nine_love_songs](https://davidsmale.netlify.app/slides/sixty_nine_love_songs)
 
-`r emo::ji("man_technologist")` Code behind the slides at:
+`r emo::ji("man_technologist")` Code behind the slides at: [github.com/committedtotape](https://github.com/committedtotape/presentations)
 
 
 
